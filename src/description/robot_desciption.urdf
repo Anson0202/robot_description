@@ -6,14 +6,15 @@
   <xacro:property name="base_length" value="0.42"/>
   <xacro:property name="base_height" value="0.18"/>
 
+  
+  <!輪子的寬、半徑、高、距離地面高度以及中心軸的距離>
   <xacro:property name="wheel_radius" value="0.10"/>
   <xacro:property name="wheel_width" value="0.04"/>
   <xacro:property name="wheel_ygap" value="0.025"/>
   <xacro:property name="wheel_zoff" value="0.05"/>
   <xacro:property name="wheel_xoff" value="0.12"/>
-
   <xacro:property name="caster_xoff" value="0.14"/>
-
+  
   <!-- Define some commonly used intertial properties  -->
   <xacro:macro name="box_inertia" params="m w h d">
     <inertial>
@@ -48,7 +49,6 @@
         <color rgba="0 1.0 1.0 1.0"/>
       </material>
     </visual>
-
     <collision>
       <geometry>
         <box size="${base_length} ${base_width} ${base_height}"/>
@@ -112,7 +112,6 @@
         <color rgba="0 1.0 1.0 1.0"/>
       </material>
     </visual>
-
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
