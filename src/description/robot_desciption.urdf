@@ -100,8 +100,10 @@
     </joint>
   </xacro:macro>
 
-  <xacro:wheel prefix="drivewhl_l" x_reflect="-1" y_reflect="1" />
-  <xacro:wheel prefix="drivewhl_r" x_reflect="-1" y_reflect="-1" />
+  <xacro:wheel prefix="drivewhl_l1" x_reflect="-1" y_reflect="1" />
+  <xacro:wheel prefix="drivewhl_l2" x_reflect="1" y_reflect="1" />
+  <xacro:wheel prefix="drivewhl_r1" x_reflect="-1" y_reflect="-1" />
+  <xacro:wheel prefix="drivewhl_r2" x_reflect="1" y_reflect="-1" />
 
   <link name="front_caster">
     <visual>
@@ -121,3 +123,8 @@
 
     <xacro:sphere_inertia m="0.5" r="${(wheel_radius+wheel_zoff-(base_height/2))}"/>
   </link>
+    <joint name="caster_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_caster"/>
+    <origin xyz="${caster_xoff} 0.0 ${-(base_height/2)}" rpy="0 0 0"/>
+  </joint>
